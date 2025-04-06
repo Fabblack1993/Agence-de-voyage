@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="apropos.css">
+
+    <title>À propos - FabTravel</title>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header>
+      <div class="logo">
+        <a href="index.html"><span>FAB</span>TRAVEL</a>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="apropos.html" class="active">À propos</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="reservation.html">Réservations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </header>
+
+    <!-- Section principale -->
+    <section id="a-propos">
+      <h1 class="title">À propos</h1>
+      <div class="img-desc">
+        <div class="left">
+          <video src="Images/Douala.mp4" autoplay loop muted></video>
+        </div>
+        <div class="right">
+          <h3>
+            Voyagez c'est découvrir, le monde est un village planétaire, voyager c'est accepter la culture de l'autre.
+          </h3>
+          <p class="short-text">
+            Pour des vacances, des séminaires, des excursions, notre agence est idéale...
+          </p>
+          <p class="full-text" style="display: none;">
+            Pour des vacances, des séminaires, des excursions, notre agence est idéale pour vous guider et vous offrir des expériences inoubliables dans les meilleures conditions. FabTravel est une agence de voyage dédiée à rendre vos rêves d'exploration possibles. Avec une équipe d'experts passionnés, nous offrons des services personnalisés pour chaque client. Venez découvrir le monde avec nous !
+          </p>
+          <a href="#" class="toggle-btn">Lire plus</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section id="testimonials">
+      <h2 class="section-title">Ce que disent nos clients</h2>
+      <div class="slider-container">
+        <!-- Commentaires existants -->
+        <div class="testimonial-slide">
+          <p>"Un voyage magnifique ! FabTravel a surpassé mes attentes !"</p>
+          <h3>- Amélie Dupont</h3>
+        </div>
+        <div class="testimonial-slide">
+          <p>"Un service impeccable, je recommande sans hésitation !"</p>
+          <h3>- Jean-Pierre Martin</h3>
+        </div>
+        <div class="testimonial-slide">
+          <p>"La meilleure expérience de voyage que j'ai eue jusqu'à présent !"</p>
+          <h3>- Claire Bernard</h3>
+        </div>
+        <div class="testimonial-slide">
+          <p>"La meilleure expérience de voyage que j'ai eue jusqu'à présent !"</p>
+          <h3>- Mom</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog">
+      <h2 class="section-title">Conseils & Inspirations</h2>
+      <div class="blog-grid">
+        <div class="blog-card">
+          <img src="Images/Packing.jpg" alt="Valises minimalistes">
+          <h3>Voyage minimaliste : que mettre dans vos valises ?</h3>
+          <p class="short-text">Des conseils pratiques pour ne pas surcharger vos bagages.</p>
+          <p class="full-text" style="display: none;">
+            Voyager léger est un art ! Apprenez à optimiser chaque espace de vos bagages. Pensez à des vêtements multifonctions, des accessoires compacts et des produits essentiels pour un voyage sans stress.
+          </p>
+          <a href="#" class="toggle-btn">Lire plus</a>
+        </div>
+        <div class="blog-card">
+          <img src="Images/New-york.jpg" alt="Destinations tendance">
+          <h3>Les destinations les plus tendance en 2025</h3>
+          <p class="short-text">Explorez des lieux enchanteurs à ne pas manquer cette année.</p>
+          <p class="full-text" style="display: none;">
+            2025 est l'année des destinations surprenantes ! Découvrez les charmes cachés de l’Asie, les paysages immaculés de l’Arctique et les villes dynamiques comme Tokyo et Cape Town. Préparez votre liste !
+          </p>
+          <a href="#" class="toggle-btn">Lire plus</a>
+        </div>
+        <div class="blog-card">
+          <img src="Images/Packing.jpg" alt="Voyage solo">
+          <h3>Pourquoi voyager seul peut tout changer</h3>
+          <p class="short-text">Découvrez les bienfaits d’un voyage en solo.</p>
+          <p class="full-text" style="display: none;">
+            Voyager seul, c’est une aventure personnelle unique. Vous apprenez à sortir de votre zone de confort, à faire des rencontres inattendues et à explorer selon vos envies. Lancez-vous dans cette expérience transformative !
+          </p>
+          <a href="#" class="toggle-btn">Lire plus</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Réalisé par <span>Fabienne Ndouga</span> | Tous droits réservés</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Fonctionnalité "Lire plus" pour la section principale
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const shortText = document.querySelector('.short-text');
+        const fullText = document.querySelector('.full-text');
+
+        toggleBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          if (fullText.style.display === 'none' || fullText.style.display === '') {
+            fullText.style.display = 'block';
+            shortText.style.display = 'none';
+            toggleBtn.textContent = 'Lire moins';
+          } else {
+            fullText.style.display = 'none';
+            shortText.style.display = 'block';
+            toggleBtn.textContent = 'Lire plus';
+          }
+        });
+
+        // Défilement automatique des témoignages
+        const sliderContainer = document.querySelector('.slider-container');
+        const slides = document.querySelectorAll('.testimonial-slide');
+        let currentIndex = 0;
+
+        function autoScroll() {
+          currentIndex++;
+          if (currentIndex >= slides.length) {
+            currentIndex = 0; // Retour au premier slide
+          }
+
+          const slideWidth = slides[currentIndex].offsetWidth;
+          sliderContainer.scrollTo({
+            left: slideWidth * currentIndex,
+            behavior: "smooth",
+          });
+        }
+
+        setInterval(autoScroll, 3000);
+
+        // Fonctionnalité "Lire plus / Lire moins" pour chaque blog card
+        const blogCards = document.querySelectorAll('.blog-card');
+
+        blogCards.forEach(card => {
+          const toggleBtn = card.querySelector('.toggle-btn');
+          const shortText = card.querySelector('.short-text');
+          const fullText = card.querySelector('.full-text');
+
+          toggleBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (fullText.style.display === 'none' || fullText.style.display === '') {
+              fullText.style.display = 'block';
+              shortText.style.display = 'none';
+              toggleBtn.textContent = 'Lire moins';
+            } else {
+              fullText.style.display = 'none';
+              shortText.style.display = 'block';
+              toggleBtn.textContent = 'Lire plus';
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

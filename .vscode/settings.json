@@ -1,0 +1,6 @@
+{
+    "git.supportCancellation": true,
+    "git.showPushSuccessNotification": true,
+    "git.openAfterClone": "always",
+    "git.branchRandomName.enable": true
+}

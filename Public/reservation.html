@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fab Travel - Réservations</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="reservation.css">
+   
+</head>
+<body>
+    <!-- En-tête avec barre de navigation -->
+    <header>
+        <nav>
+            <h1>Fab Travel</h1>
+            <ul class="menu">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="#reservation">Réservations</a></li>
+                <li><a href="#reservation-list">Tableau</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section Swiper pour les offres -->
+    <section id="voyages">
+        <h2>Nos Offres</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <img src="Images/Paris.jpg" alt="Paris romantique">
+                    <h3>Paris romantique</h3>
+                    <p>Découvrez la ville lumière pour seulement 500€.</p>
+                    <button onclick="setReservationDetails('Paris romantique', '500')">Réserver</button>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <img src="Images/safari.jpg" alt="Safari au Kenya">
+                    <h3>Safari au Kenya</h3>
+                    <p>Une aventure inoubliable pour 1200€.</p>
+                    <button onclick="setReservationDetails('Safari au Kenya', '1200')">Réserver</button>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <img src="Images/Londres 1.jpeg" alt="Londres historique">
+                    <h3>Londres historique</h3>
+                    <p>Découvrez Londres pour seulement 800€.</p>
+                    <button onclick="setReservationDetails('Londres historique', '800')">Réserver</button>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Section Formulaire de réservation -->
+    <section id="reservation">
+        <h2>Créer une Réservation</h2>
+        <div id="confirmationMessage" style="display: none; background: #d4edda; color: #155724; padding: 15px; margin-top: 10px;">
+            <p>Votre réservation a été soumise avec succès !</p>
+        </div>
+        <form id="reservationForm" action="/api/reservations" method="POST">
+            <input type="text" id="voyage" name="voyage" placeholder="Voyage sélectionné" readonly>
+            <input type="number" id="price" name="price" placeholder="Prix (en €)" readonly>
+            <input type="text" id="firstName" name="firstName" placeholder="Prénom" required>
+            <input type="text" id="lastName" name="lastName" placeholder="Nom" required>
+            <input type="tel" id="phone" name="phone" placeholder="Téléphone" required>
+            <input type="date" id="reservationDate" name="reservationDate" required>
+            <input type="time" id="reservationTime" name="reservationTime" required>
+            <input type="number" id="numberOfPeople" name="numberOfPeople" placeholder="Nombre de personnes" required>
+            <button type="submit">Réserver</button>
+        </form>
+    </section>
+
+    <!-- Section Tableau des réservations -->
+    
+    <script>document.addEventListener("DOMContentLoaded", function () {
+        // Initialisation de Swiper
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            slidesPerView: 1, // Affiche une slide à la fois
+            spaceBetween: 20, // Espacement entre les slides
+        });
+    });
+    </script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="reservation.js"></script>
+</body>
+</html>
+
+

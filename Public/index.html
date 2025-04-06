@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Site web de voyage</title>
+  </head>
+  <body>
+    <!--Barre de menu-->
+    <header>
+      <div class="logo">
+        <a href="index.html"><span>FAB</span>TRAVEL</a>
+      </div>
+      <ul class="menu">
+        <li><a href="#">Accueil</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="reservation.html">Réservations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/admin" class="btn-admin">Accéder à l'Admin</a></li>
+      </ul>
+      <a href="reservation.html" class="btn-reservation">Réserver maintenant</a>
+      <div class="responsive-menu"></div>
+    </header>
+
+    <!--Section Home-->
+    <section id="home">
+      <h2>Nous suivre</h2>
+      <h4>Voyagez en toute sécurité</h4>
+      <p>
+        Choisir notre agence, c'est choisir le confort, la ponctualité, le professionnalisme et un service de qualité.
+      </p>
+      <p>
+        Vous assister dans la réalisation de vos rêves, notre devoir.
+      </p>
+      <a href="reservation.html" class="btn-reservation home-btn">Réserver maintenant</a>
+
+      <!-- Formulaire de recherche -->
+      <div class="find_trip">
+        <form id="tripForm">
+          <div>
+            <label>Pays</label>
+            <input type="text" id="country" placeholder="Entrez un pays" required>
+          </div>
+          <div>
+            <label>Ville</label>
+            <input type="text" id="city" placeholder="Entrez une ville" required>
+          </div>
+          <div>
+            <label>Région</label>
+            <input type="text" id="region" placeholder="Entrez une région" required>
+          </div>
+          <input type="submit" value="Voir">
+        </form>
+        <div id="result"></div>
+      </div>
+    </section>
+
+    <!--Section À propos-->
+    <section id="a-propos">
+      <h1 class="title">À propos</h1>
+      <div class="img-desc">
+        <div class="left">
+          <video src="Images/Douala.mp4" autoplay loop></video>
+        </div>
+        <div class="right">
+          <h3>
+            Voyager, c'est découvrir. Le monde est un village planétaire, et voyager, c'est accepter la culture de l'autre.
+          </h3>
+          <p class="short-text">
+            Pour des vacances, des séminaires, des excursions, notre agence est idéale...</p>
+          <p class="full-text" style="display: none;">
+            Pour des vacances, des séminaires, des excursions, notre agence est idéale pour vous guider et vous offrir des expériences inoubliables dans les meilleures conditions. Venez découvrir le monde avec nous !
+          </p>
+          <a href="#" class="toggle-btn">Lire plus</a>
+        </div>
+      </div>
+    </section>
+
+    <!--Section Destinations-->
+    <section id="popular-destination">
+      <h1 class="title">Destinations populaires</h1>
+      <div class="content">
+        <div class="box">
+          <img src="Images/moscou-h.jpg" alt="Moscou">
+          <div class="content">
+            <div>
+              <h4>Moscou</h4>
+              <p class="short-text">Découvrez Moscou, une ville riche en histoire et en culture...</p>
+              <p class="full-text" style="display: none;">
+                Moscou, capitale de la Russie, est une ville fascinante avec une richesse historique impressionnante. Explorez des sites emblématiques tels que le Kremlin, la Place Rouge, et des trésors artistiques dans la Galerie Tretiakov.
+              </p>
+              <a href="#" class="toggle-btn">Lire plus</a>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <img src="Images/Paris.jpg" alt="Paris">
+          <div class="content">
+            <div>
+              <h4>Paris</h4>
+              <p class="short-text">Capitale de la France, Paris est une ville romantique et artistique...</p>
+              <p class="full-text" style="display: none;">
+                Paris, surnommée la Ville Lumière, est célèbre pour ses musées tels que le Louvre et Orsay, ses monuments iconiques comme la Tour Eiffel et l'Arc de Triomphe, ainsi que ses charmants cafés et sa Seine poétique.
+              </p>
+              <a href="#" class="toggle-btn">Lire plus</a>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <img src="Images/Tokyo.jpg" alt="Tokyo">
+          <div class="content">
+            <div>
+              <h4>Tokyo</h4>
+              <p class="short-text">Une métropole dynamique où tradition et modernité se rencontrent...</p>
+              <p class="full-text" style="display: none;">
+                Tokyo, la capitale du Japon, allie gratte-ciels futuristes et traditions ancestrales. Visitez le quartier de Shibuya, le temple Senso-ji ou goûtez à une cuisine japonaise exceptionnelle dans ses marchés animés.
+              </p>
+              <a href="#" class="toggle-btn">Lire plus</a>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <img src="Images/New-york.jpg" alt="New York">
+          <div class="content">
+            <div>
+              <h4>New York</h4>
+              <p class="short-text">Une ville qui ne dort jamais, au cœur de la culture et des affaires...</p>
+              <p class="full-text" style="display: none;">
+                New York, surnommée Big Apple, est un centre mondial de culture et de commerce. Admirez la Statue de la Liberté, promenez-vous dans Central Park et vivez l'énergie unique de Times Square.
+              </p>
+              <a href="#" class="toggle-btn">Lire plus</a>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <img src="Images/Londres 1.jpeg" alt="Londres">
+          <div class="content">
+            <div>
+              <h4>Londres</h4>
+              <p class="short-text">Une ville cosmopolite où l'histoire royale rencontre la modernité...</p>
+              <p class="full-text" style="display: none;">
+                Londres, capitale du Royaume-Uni, est un mélange parfait de traditions royales et de culture contemporaine. Visitez Buckingham Palace, la Tour de Londres et explorez les boutiques de Covent Garden.
+              </p>
+              <a href="#" class="toggle-btn">Lire plus</a>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <img src="Images/Quebec.jpg" alt="Québec">
+          <div class="content">
+            <div>
+              <h4>Québec</h4>
+              <p class="short-text">Un trésor canadien empreint de charme et d'histoire...</p>
+              <p class="full-text" style="display: none;">
+                Québec, avec sa vieille ville pittoresque et son Château Frontenac, offre une ambiance européenne unique. Découvrez ses rues pavées, ses festivals animés et sa chaleureuse hospitalité québécoise.
+              </p>
+              <a href="#" class="toggle-btn">Lire plus</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+    <!--Section Contact-->
+    <section id="contact">
+      <h1 class="title">Contact</h1>
+      <form id="contactForm" action="/send-email" method="POST">
+        <div class="left-right">
+          <div class="left">
+            <label>Nom Complet</label>
+            <input type="text" name="fullName" required>
+            <label>Objet</label>
+            <input type="text" name="subject" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>Message</label>
+            <textarea name="message" cols="30" rows="10" required></textarea>
+          </div>
+          <div class="right">
+            <label>Numéro</label>
+            <input type="number" name="phone">
+            <label>Date</label>
+            <input type="date" name="date">
+            <label>Autres Détails</label>
+            <input type="text" name="details">
+            <label>Adresse</label>
+            <textarea name="address" cols="30" rows="3"></textarea>
+          </div>
+        </div>
+        <button type="submit">Envoyer</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>Réalisé par <span>Fabienne Ndouga</span> | Tous droits réservés.</p>
+    </footer>
+
+    <script>
+      // Dynamise le formulaire de recherche
+      document.getElementById('tripForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const country = document.getElementById('country').value.trim();
+        const city = document.getElementById('city').value.trim();
+        const region = document.getElementById('region').value.trim();
+
+        if (!country || !city || !region) {
+          document.getElementById('result').innerHTML = "<p style='color: red;'>Veuillez remplir tous les champs pour voir le résultat.</p>";
+          return;
+        }
+
+        // Simule des résultats pour test sans backend
+        document.getElementById('result').innerHTML = `
+          <h3>Résultat de votre recherche :</h3>
+          <p><strong>Pays :</strong> ${country}</p>
+          <p><strong>Ville :</strong> ${city}</p>
+          <p><strong>Région :</strong> ${region}</p>
+        `;
+      });
+
+      
+    
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+

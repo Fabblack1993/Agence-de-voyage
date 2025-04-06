@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+
+   
+    <title>Contact - FabTravel</title>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header>
+      <div class="logo">
+        <a href="index.html"><span>FAB</span>TRAVEL</a>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="apropos.html">À propos</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="reservation.html">Reservations</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </header>
+
+    <!-- Formulaire de Contact -->
+   
+    <section id="contact" class="container" >
+      <h1 class="title">Contact</h1>
+      <form id="contactForm" action="/send-email" method="POST">
+        <div class="left-right">
+          <div class="left">
+            <label>Nom Complet</label>
+            <input type="text" >
+            <label>Objet</label>
+            <input type="text" >
+            <label>Email</label>
+            <input type="email" required >
+            <label>Message</label>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+          </div>
+
+
+          <div class="right">
+            <label>Numéro</label>
+            <input type="number" required>
+            <label>Date</label>
+            <input type="date">
+            <label>Autres Details</label>
+            <input type="text">
+            <label>Adresse </label>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937586!2d2.2922926156743895!3d48.858370079287475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sTour%20Eiffel!5e0!3m2!1sfr!2scm!4v1687250557836!5m2!1sfr!2scm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+         
+        </div>
+        <button type="submit">Envoyer</button>
+      </form>
+    </section>
+  
+    <!-- Footer -->
+    <footer>
+      <p>Réalisé par <span>Fabienne Ndouga</span> | Tous droits réservés</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="destination.css" />
+   
+    <title>Destinations - FabTravel</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="logo">
+            <a href="index.html"><span>FAB</span>TRAVEL</a>
+        </div>
+        <ul class="menu">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="apropos.html">À propos</a></li>
+            <li><a href="destinations.html" class="active">Destinations</a></li>
+            <li><a href="reservation.html">Réservations</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </header>
+
+    <!-- Section Destinations -->
+    <section class="destinations">
+        <h2>Destinations populaires</h2>
+        <!-- Barre de recherche -->
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Rechercher une destination..." />
+        </div>
+        <div class="destination-grid">
+            <!-- Destinations fixes -->
+            <div class="destination">
+                <img src="Images/Paris.jpg" alt="Paris">
+                <h3>Paris</h3>
+                <p>À partir de 300€</p>
+            </div>
+            <div class="destination">
+                <img src="Images/Tokyo.jpg" alt="Tokyo">
+                <h3>Tokyo</h3>
+                <p>À partir de 500€</p>
+            </div>
+            <div class="destination">
+                <img src="Images/New-york.jpg" alt="New York">
+                <h3>New York</h3>
+                <p>À partir de 450€</p>
+            </div>
+            <div class="destination">
+                <img src="Images/Quebec.jpg" alt="Quebec">
+                <h3>Quebec</h3>
+                <p>À partir de 400€</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Réalisé par <span>Fabienne Ndouga</span> | Tous droits réservés</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById('search');
+    const destinations = Array.from(document.querySelectorAll('.destination')); // Sélectionner les éléments fixes
+
+    searchInput.addEventListener('input', (event) => {
+        const query = event.target.value.toLowerCase(); // Récupérer la valeur tapée
+        destinations.forEach(destination => {
+            const destinationName = destination.querySelector('h3').textContent.toLowerCase();
+            if (destinationName.includes(query)) {
+                destination.style.display = 'block'; // Afficher les correspondances
+            } else {
+                destination.style.display = 'none'; // Masquer les autres
+            }
+        });
+    });
+
+
+            // Récupération des destinations via une API simulée
+            fetch('/api/destinations')
+                .then(response => response.json())
+                .then(destinations => {
+                    renderDestinations(destinations);
+
+                    // Ajouter un filtre de recherche
+                    searchInput.addEventListener('input', (event) => {
+                        const query = event.target.value.toLowerCase();
+                        const filteredDestinations = destinations.filter(destination =>
+                            destination.name.toLowerCase().includes(query)
+                        );
+                        renderDestinations(filteredDestinations);
+                    });
+                })
+                .catch(err => console.error('Erreur de chargement des destinations', err));
+        });
+    </script>
+</body>
+</html>

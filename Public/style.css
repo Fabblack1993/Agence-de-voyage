@@ -1,0 +1,613 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+  background-color: #090909;
+  color: #eee; 
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+}
+
+section {
+  margin-top: 50px;
+}
+a {
+  text-decoration: 0;
+}
+/*Navbar*/
+a:hover {
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+header {
+  background-color: #222;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0 5%;
+}
+header .logo a {
+  font-size: 25px;
+  color: #f4f807;
+}
+header .logo a span {
+  color: #fff;
+}
+.full-text {
+  display: none;
+  opacity: 100;
+  transition: opacity 0.3s ease-in-out;
+}
+.full-text.active {
+  display: block;
+  opacity: 1;
+}
+.box:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+button:active {
+  transform: scale(0.98);
+  background-color: #444; /* Une couleur légèrement différente */
+}
+
+
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+.menu li {
+  margin: 0 15px;
+  list-style-type: none;
+}
+.menu li a {
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+}
+.menu li a:hover {
+  color: #f4f807;
+}
+.btn-reservation {
+  color: #fff;
+  font-size: 14px;
+  border: 2px solid;
+  padding: 5px 20px;
+  transition: 0.5s;
+  font-weight: bolder;
+}
+.btn-reservation:hover {
+  background-color: #079dcf;
+  color: #fff;
+}
+
+/*Section d'image en background*/
+
+#home {
+  background: linear-gradient(rgba(245, 89, 15, 0.1), #c7c7c5),
+    url("Images/concept-voyage-points-repere.jpg");
+  background-position: center;
+  background-size: cover;
+  height: calc(100vh - 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+#home h2 {
+  font-size: 45px;
+  margin-bottom: 10px;
+  -webkit-text-stroke: #f5f8f9 0.9px;
+  color: transparent;
+  text-transform: lowercase;
+
+}
+#home h4 {
+  font-size: 50px;
+  color: #fafaf7;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+ 
+}
+#home p {
+  color: #f4f6f7;
+  margin-bottom: 10px;
+  font-size: 12px;
+  
+}
+.home-btn {
+  margin: bottom 20px;
+}
+.find_trip {
+  background-color: #222;
+  padding: 20px;
+  width: 70%;
+  position: absolute;
+  bottom: -50px;
+}
+.find_trip form {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+}
+.find_trip form div,
+.find_trip form input[type="submit"] {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+.find_trip form label {
+  color: #999;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.find_trip form input {
+  padding: 5px 20px;
+  background-color: transparent;
+  border: 1px solid #f4f807;
+  outline: 0;
+  width: 100%;
+  font-size: 13px;
+  color: #fff;
+}
+
+
+.find_trip form input[type="submit"] {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  color: #f8f8f4;
+  cursor: pointer;
+  transform: 0.5s;
+}
+.find_trip form input[type="submit"]:hover {
+  box-shadow: 0 0 10px #f4f807;
+}
+
+/*A propos*/
+
+#a-propos {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  padding: 0 10%;
+  width: 100%;
+}
+.title {
+  text-transform: capitalize;
+  margin: 70px 0;
+  font-weight: bold;
+  color: #f4f807;
+  position: relative;
+  margin-left: 15px;
+  font-size: 18px;
+}
+.title::after {
+  position: absolute;
+  left: -15px;
+  content: "";
+  height: 100%;
+  background-color: #fff;
+  width: 5px;
+}
+.img-desc {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.img-desc .left {
+  position: relative;
+  margin-left: 10px;
+  height: 250px;
+  width: 40%;
+}
+.img-desc .right {
+  width: 57%;
+}
+.img-desc .left video {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  box-shadow: 0 0 10px #f4f807;
+}
+.img-desc .left::after {
+  position: absolute;
+  bottom: -10px;
+  right: 10px;
+  content: "";
+  height: 100%;
+  background-color: #f4f807;
+  width: 100%;
+  z-index: -1;
+}
+.img-desc .right h3 {
+  color: #fff;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+.img-desc .right p {
+  color: #999;
+  font: 14px;
+  margin-bottom: 36px;
+}
+.img-desc .right a {
+  border: 1px solid #f8f4f1;
+  font-size: 14px;
+  padding: 8px 25px;
+  font-weight: bold;
+  color: #f4f807;
+}
+
+/* Destinations populaires*/
+
+#popular-destination {
+  padding: 0 10%;
+  margin-bottom: 50px;
+  background-color: #ece4e4;
+}
+#popular-destination .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+#popular-destination .content .box {
+  overflow: hidden;
+  position: relative;
+  height: 240px;
+  transition: 0.5s;
+  margin-bottom: 50px;
+}
+#popular-destination .content .box img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  
+}
+#popular-destination .title{
+  color: #000;
+  margin-bottom: 90px;
+  top: 30px;
+  
+
+}
+#popular-destination .title::after {
+  position: absolute;
+  left: -15px;
+  content: "";
+  height: 100%;
+  background-color: #ffeb37;
+  width: 5px;
+  
+}
+.short-text {
+  display: block; /* Le texte court est visible par défaut */
+}
+
+.full-text {
+  display: none; /* Le texte complet est masqué par défaut */
+}
+
+.toggle-btn {
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+.toggle-btn {
+  margin: auto 10px 10px;
+  text-align: center;
+  display: inline-block;
+  padding: 10px 15px;
+  border: none;
+  background: #6a0dad;
+  color: white;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  
+}
+
+
+
+
+.box .contentp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #f5f5f0;
+  text-align: center;
+  align-items: center;
+  
+}
+.box .contentp h4 {
+  font-size: 25px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  
+}
+.box .contentp p {
+  padding: 12px;
+  font-size: 22px;
+  
+}
+.box .contentp p:nth-child(3) {
+  margin: 25px;
+  
+}
+.box .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #f4f807;
+  text-align: center;
+  align-items: center;
+  transform: translateX(100%);
+  transition: 0.5s;
+}
+.box .content h4 {
+  font-size: 25px;
+  margin-bottom: 10px;
+  color: #000;
+}
+.box .content p {
+  padding: 2px;
+  font-size: 12px;
+  color: #000;
+}
+.box .content p:nth-child(3) {
+  margin: 10px;
+  color: #000;
+}
+.box .content a {
+  margin-top: 60px;
+  padding: 10px 60px;
+  border: 2px solid black;
+  color: #0d0d0d;
+  font-weight: bold;
+}
+.box:hover {
+  box-shadow: 0 0 10px #111;
+}
+.box:hover .content {
+  transform: translateX(0);
+}
+
+.reservation-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.reservation-list th, .reservation-list td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.reservation-list th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+/*Partie Contact*/
+
+#contact {
+  padding: 0 10%;
+  margin-bottom: 50px;
+  height: 100vh;
+}
+#contact form {
+  background-color: #fff;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.left-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.left-right .left,
+.left-right .right {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+}
+#contact form label {
+  font-size: 14px;
+  padding: 10px 0;
+  font-weight: 600;
+}
+#contact form input {
+  padding: 8px;
+  outline: 0;
+  border: 1px solid #999;
+}
+textarea {
+  height: 150px;
+  resize: none;
+  outline: 0;
+  width: 100%;
+  padding: 10px;
+}
+#contact form input:focus,
+textarea:focus {
+  border: 1px solid #111;
+}
+iframe {
+  height: 150px;
+  width: 100%;
+}
+#contact button {
+  width: fit-content;
+  padding: 8px 40px;
+  background-color: #111;
+  border: 1px solid;
+  color: #f4f807;
+  cursor: pointer;
+  transition: 0.5s;
+}
+#contact button:hover {
+  letter-spacing: 1px;
+}
+.responsive-menu{
+    display: none;
+}
+
+/*Partie footer*/
+footer {
+  width: 100%;
+  background-color: #222;
+  padding: 10px 0;
+  text-align: center;
+}
+footer p {
+  color: #fff;
+}
+footer p span {
+  color: #f4f807;
+}
+
+/*Responsive*/
+@media (max-width: 750px) {
+  header .menu {
+    display: none;
+  }
+  .btn-reservation {
+    display: none;
+  }
+  /*Responsive menu*/
+  #home h2 {
+    font-size: 18px;
+    -webkit-text-stroke: 0;
+    color: #fff;
+  }
+  #home h4 {
+    font-size: 28px;
+  }
+  #home p {
+    text-align: center;
+    font-size: 10px;
+  }
+  .find_trip {
+    width: 100%;
+    height: 200px;
+  }
+  .find_trip form {
+    flex-wrap: wrap;
+  }
+  .find_trip form div {
+    margin-top: 10px;
+    flex-direction: column;
+    width: 47%;
+  }
+  .find_trip form input[type="submit"] {
+    width: 47%;
+  }
+  .home-btn {
+    display: block;
+  }
+  /*Responsive A propos*/
+  .img-desc {
+    flex-direction: column;
+    width: 100%;
+  }
+  .img-desc .left,
+  .img-desc .right {
+    width: 100%;
+  }
+  .img-desc .left video {
+    width: 100%;
+  }
+  .img-desc .left::after {
+    background-color: transparent;
+  }
+  .img-desc .left {
+    margin-bottom: 20px;
+  }
+  .responsive-menu {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  }
+  .responsive-menu::after {
+    position: absolute;
+    content: "";
+    height: 3px;
+    background-color: #f4f807;
+    width: 20px;
+    box-shadow: 0 10px 0 #f4f807;
+    transform: translateY(-10px);
+    transition: 0.5s;
+  }
+  .responsive-menu.active::after {
+    box-shadow: 0 0 0 #f4f807;
+    transform: rotate(45deg);
+  }
+  .responsive-menu::before {
+    position: absolute;
+    content: "";
+    height: 3px;
+    background-color: #f4f807;
+    width: 20px;
+    transform: translateY(10px);
+    transition: 0.5s;
+  }
+  .responsive-menu.active::before {
+    transform: rotate(-45deg);
+  }
+  header .menu.responsive {
+    display: flex;
+    position: absolute;
+    top: 50px;
+    right: 0;
+   flex-direction: column;
+    background-color: #10100f;
+    align-items: unset;
+    animation: animate-menu 1s forwards;
+  }
+  header .menu.responsive li{
+    margin: 20px;
+    width: 100px;
+    padding-left: 20px;
+  }
+  @keyframes animate-menu{
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+  }
+ 
+}

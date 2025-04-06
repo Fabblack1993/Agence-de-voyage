@@ -1,0 +1,97 @@
+/* Styles principaux */
+.destinations {
+    padding: 60px 20px;
+    text-align: center;
+    background: #0f0f0f;
+}
+
+.destinations h2 {
+    color: #6a0dad;
+    margin-bottom: 40px;
+}
+
+.destination-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.destination {
+    background: #f1df11;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 280px;
+    flex: 1 1 calc(33.333% - 20px); /* 3 items par ligne avec un espace de 20px */
+    box-sizing: border-box; /* Assure une bonne gestion des marges/paddings */
+    transition: transform 0.3s ease;
+}
+
+.destination:hover {
+    transform: translateY(-10px);
+}
+
+.destination img {
+    width: 100%;
+    height: auto;
+}
+
+.destination h3 {
+    margin: 15px 0 10px;
+    color: #6a0dad;
+}
+.search-bar input:hover {
+    border-color: #8b00ff; /* Une couleur légèrement plus claire */
+    box-shadow: 0 6px 10px rgba(106, 13, 173, 0.3); /* Accentuation de l'ombre */
+  }
+  
+p {
+    color: black;
+    margin: 15px 0 10px;
+}
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    width: 80%; /* Prend une grande partie de l'espace */
+    max-width: 400px; /* Limite à 400px pour éviter qu'elle soit trop large */
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: #6a0dad; /* Couleur en surbrillance */
+    box-shadow: 0 4px 8px rgba(106, 13, 173, 0.2); /* Ombre accentuée */
+}
+
+
+/* Responsive pour tablettes (écrans moyens) */
+@media (max-width: 768px) {
+    .destination {
+        flex: 1 1 calc(50% - 20px); /* 2 items par ligne */
+    }
+}
+
+/* Responsive pour mobiles (écrans petits) */
+@media (max-width: 480px) {
+    .destination {
+        flex: 1 1 100%; /* 1 item par ligne */
+        max-width: 100%; /* Prend toute la largeur */
+    }
+
+    .destinations {
+        padding: 40px 10px; /* Réduire l'espace général sur les petits écrans */
+    }
+
+    .destinations h2 {
+        font-size: 1.5rem; /* Ajuster la taille du texte */
+    }
+}

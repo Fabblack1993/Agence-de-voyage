@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reservation.css">
+   
+    <title>Tableau de Bord Admin - FabTravel</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Tableau de Bord - Réservations</h1>
+
+    <!-- Statistiques clés -->
+    <section id="stats">
+        <div class="stat-card">
+            <h3>Total des réservations</h3>
+            <p id="total-reservations">0</p>
+        </div>
+        <div class="stat-card">
+            <h3>Nombre total de clients</h3>
+            <p id="total-clients">0</p>
+        </div>
+    </section>
+
+    <!-- Graphique des réservations mensuelles -->
+    <section id="analytics">
+        <h2>Réservations par mois</h2>
+        <canvas id="reservations-chart" width="400" height="200"></canvas>
+    </section>
+
+    <!-- Graphique des destinations populaires -->
+    <section id="popular-destination">
+        <h2>Destinations populaires</h2>
+        <canvas id="destination-chart" width="400" height="200"></canvas>
+    </section>
+
+    <!-- Tableau des réservations -->
+    <section id="table-section">
+        <h2>Liste des réservations</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Numéro de téléphone</th>
+                    <th>Date</th>
+                    <th>Heure</th>
+                    <th>Nombre de personnes</th>
+                </tr>
+            </thead>
+            <tbody id="reservation-table">
+                <!-- Les données seront insérées ici -->
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        // Récupérer les données des réservations
+        fetch('/api/reservations')
+            .then(response => response.json())
+            .then(data => {
+                // Mise à jour des statistiques
+                document.getElementById('total-reservations').textContent = data.length;
+
+                const uniqueClients = new Set(data.map(reservation => reservation.phone));
+                document.getElementById('total-clients').textContent = uniqueClients.size;
+
+                // Remplir le tableau
+                const table = document.getElementById('reservation-table');
+                data.forEach(reservation => {
+                    const row = `
+                        <tr>
+                            <td>${reservation.firstName} ${reservation.lastName}</td>
+                            <td>${reservation.phone}</td>
+                            <td>${reservation.reservationDate}</td>
+                            <td>${reservation.reservationTime}</td>
+                            <td>${reservation.numberOfPeople}</td>
+                        </tr>`;
+                    table.innerHTML += row;
+                });
+
+                // Préparer les données pour le graphique des réservations mensuelles
+                const monthlyReservations = {};
+                data.forEach(reservation => {
+                    const month = new Date(reservation.reservationDate).toLocaleString('default', { month: 'long' });
+                    monthlyReservations[month] = (monthlyReservations[month] || 0) + 1;
+                });
+
+                // Afficher le graphique des réservations mensuelles
+                const ctx1 = document.getElementById('reservations-chart').getContext('2d');
+                new Chart(ctx1, {
+                    type: 'bar',
+                    data: {
+                        labels: Object.keys(monthlyReservations),
+                        datasets: [{
+                            label: 'Réservations par mois',
+                            data: Object.values(monthlyReservations),
+                            backgroundColor: '#4BC0C0'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top'
+                            }
+                        }
+                    }
+                });
+
+                // Préparer les données pour le graphique des destinations populaires
+                const destinations = {};
+                data.forEach(reservation => {
+                    const destination = reservation.destination || 'Inconnue';
+                    destinations[destination] = (destinations[destination] || 0) + 1;
+                });
+
+                // Afficher le graphique des destinations populaires
+                const ctx2 = document.getElementById('destination-chart').getContext('2d');
+                new Chart(ctx2, {
+                    type: 'pie',
+                    data: {
+                        labels: Object.keys(destinations),
+                        datasets: [{
+                            label: 'Destinations populaires',
+                            data: Object.values(destinations),
+                            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+                        }]
+                    }
+                });
+            })
+            .catch(error => console.error('Erreur lors du chargement des données :', error));
+    </script>
+</body>
+</html>
